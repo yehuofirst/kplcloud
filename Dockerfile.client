@@ -22,6 +22,8 @@ COPY --from=build-env /go/bin/kplcloud /go/bin/kplcloud
 COPY ./static /go/bin/static
 COPY ./database /go/bin/database
 COPY --from=build-env /go/bin/client /go/bin/client
+COPY --from=build-env /go/bin/client /go/bin/client
+
 
 WORKDIR /go/bin/
 CMD ["/go/bin/kplcloud", "start", "-p", ":8080", "-c", "/etc/kplcloud/app.cfg", "-k", "/etc/kplcloud/config.yaml"]
